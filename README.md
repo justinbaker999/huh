@@ -25,7 +25,11 @@ Usage
         assert !@post.save
       end
 
+      finish!
+
     end
+
+Don't forget the finish!; it prints out number of tests, assertions, failures, as well as percentage of passing tests.
 
 Assertions
 ============
