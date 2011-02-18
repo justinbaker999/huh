@@ -28,23 +28,3 @@ class Huh
   end
 end
 
-class PostTest < Huh
-
-  test "the truth" do
-    assert true
-  end 
-
- test "equality of 1." do
-    assert_equal 1, 1
-  end
-  
-  test "should fail" do
-    flunk
-  end
-
-  test "assert_nil" do
-    assert_nil nil
-  end
-
-  finish!
-end
