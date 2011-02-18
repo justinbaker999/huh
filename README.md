@@ -6,26 +6,26 @@ A tiny(<30 lines) library for unit testing
 Install
 =========
 
-  sudo gem install huh
+    sudo gem install huh
 
 or from source
 
-  git clone git://github.com/justinbaker/huh.git
-  cd huh
-  rake
-  gem install huh-1.0.0.gem
+    git clone git://github.com/justinbaker/huh.git
+    cd huh
+    rake
+    gem install huh-1.0.0.gem
 
 Usage
 =========
 
-class PostTest < Huh
-  
-  test "should_not_save" do
-    @post = Post.new 
-    assert !@post.save
-  end
+    class PostTest < Huh
+    
+      test "should_not_save" do
+        @post = Post.new 
+        assert !@post.save
+      end
 
-end
+    end
 
 Assertions
 ============
