@@ -3,7 +3,7 @@ class Huh
   class << self
     attr_accessor :a, :t, :f
     def test(name, &block)
-      @t= oz(@t)+1
+      @t= oz(@t) + 1
       begin
         yield
       rescue Failure => e
@@ -13,18 +13,13 @@ class Huh
       end
     end
     def assert(truth)
-      unless !!truth 
-        @f = oz(@f) + 1
-        raise Failure
-      else
-        @a = oz(@a)+1 
-      end
+      !!truth ? (@a = oz(@a) + 1) : (@f = oz(@f) + 1; raise Failure)
     end
     def oz(v); v or 0; end # value or_zero
     def flunk; assert(false); end # always fails
     def assert_equal(a,b); assert(a == b); end # true == true..yes
     def assert_nil(a); assert(a.nil?); end # true == true..yes
-    def finish!;puts "\n#{oz(@t)} tests, #{oz(@a)} assertions, #{oz(@f)} failures. #{(((@t-@f).to_f/@t.to_f)*100).to_i}% passing tests"; end # spit out info
+    def finish!;puts "\n#{oz(@t)} tests, #{oz(@a)} assertions, #{oz(@f)} failures. #{(((oz(@t)-oz(@f)).to_f/@t.to_f)*100).to_i}% passing tests"; end # spit out info
   end
 end
 
