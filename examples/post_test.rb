@@ -1,4 +1,4 @@
-require "huh"
+require File.dirname(__FILE__) + "/../lib/huh"
 
 class PostTest < Huh
   

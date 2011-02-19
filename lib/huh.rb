@@ -18,6 +18,5 @@ class Huh
   def self.assert_equal(a,b); assert(a == b); end # true == true..yes
   def self.assert_nil(a); assert(a.nil?); end # true == true..yes
   def self.finish!;puts "\n#{oz(@t)} tests, #{oz(@a)} assertions, #{oz(@f)} failures. #{(((oz(@t)-oz(@f)).to_f/@t.to_f)*100).to_i}% passing tests"; end # spit out info
-  end
 end
 
