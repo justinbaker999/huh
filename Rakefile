@@ -7,3 +7,7 @@ end
 task :push do
   sh "gem push huh-#{Huh::V}.gem"
 end
+
+task :clean do
+  sh "rm huh-*.gem"
+end

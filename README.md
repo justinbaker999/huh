@@ -1,7 +1,7 @@
 Intro
 =========
 
-A tiny(<30 lines) library for unit testing
+A tiny(<40 lines) library for unit testing
 
 Install
 =========
