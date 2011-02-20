@@ -38,7 +38,22 @@ The current list of assertions available:
 
 - assert(a): expects a to be true 
 - assert_equal(a, b): expects a == b
+- assert_not_equal(a, b): expects a != b
+- assert_same(a, b): expects a.equal?(b)
+- assert_not_same(a, b): expects !a.equal?(b)
 - assert_nil(a): expects a == nil
+- assert_not_nil(a): expects a != nil
+- assert_instance_of(t, o): expects o.instance_of?(t)
+- assert_kind_of(t, o): expects o.kind_of?(t)
+- assert_match(p,s): expects p.match(s)
+- assert_no_match(p,s): expects !p.match(s)
+- assert_respond_to(m,o): expects o.respond_to?(m)
+- assert_raises(block): expects block.call to raise an error
+- assert_block(block): expects block.call to return true
+- assert_send(array): expects array[0].send(array[1], array[REST OF ARRAY])
+- assert_in_delta(e,a,d): expects e-a to be less than or equal to d
+- assert_nothing_thrown(block): expects block to throw nothing
+- assert_nothing_raised(block): expects block to raise nothing
 - flunk: fails always
 
 License

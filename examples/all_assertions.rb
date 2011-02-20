@@ -50,7 +50,27 @@ class Test < Huh
 
   test "should be true" do
     assert_block do
-      "dfg"
+      true
+    end
+  end 
+
+  test "should send it" do
+    assert_send [[1,2], :include?, 1]
+  end
+
+  test "delta!!!!" do
+    assert_in_delta 0.05, (50000.0 / 10**6), 0.00001
+  end 
+
+  test "shouldn't have no problems throwing" do
+    assert_nothing_thrown do
+      "I'm a good kid :)"
+    end
+  end 
+
+  test "shouldn't have no problems raising" do
+    assert_nothing_raised do
+      "I'm a good kid :)"
     end
   end
  
