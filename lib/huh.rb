@@ -15,8 +15,19 @@ class Huh
   end
   def self.oz(v); v or 0; end # value or_zero
   def self.flunk; assert(false); end # always fails
-  def self.assert_equal(a,b); assert(a == b); end # true == true..yes
-  def self.assert_nil(a); assert(a.nil?); end # true == true..yes
+  def self.assert_equal(e,a); assert(e == a); end # true == true..yes
+  def self.assert_not_equal(e,a); assert(e != a); end
+  def self.assert_same(e,a); assert(e.equal?(a)); end # true == true..yes
+  def self.assert_not_same(e,a); assert(!e.equal?(a)); end
+  def self.assert_nil(a); assert(a.nil?); end # a == nil..yes
+  def self.assert_not_nil(a); assert(!a.nil?); end # a == nil..no
+  def self.assert_instance_of(k,o); assert(o.instance_of?(k)); end # kind, object. object is a kind
+  def self.assert_kind_of(k,o); assert(o.kind_of?(k)); end # kind, object. object is somewhat a kind
+  def self.assert_match(p,s); assert(p.match(s)); end # regex matcher
+  def self.assert_no_match(p,s); assert(!p.match(s)); end # regex doesnt match
+  def self.assert_respond_to(m,o); assert(o.respond_to?(m)); end # you talk like that?
+  def self.assert_raises(&block); assert(begin; yield; rescue; true; end); end
+  def self.assert_block(&block); assert(begin;yield; rescue; false; end); end
   def self.finish!;puts "\n#{oz(@t)} tests, #{oz(@a)} assertions, #{oz(@f)} failures. #{(((oz(@t)-oz(@f)).to_f/@t.to_f)*100).to_i}% passing tests"; end # spit out info
 end
 

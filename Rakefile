@@ -3,5 +3,5 @@ task :default do
 end
 
 task :push do
-  sh "gem push huh-1.0.3.gem"
+  sh "gem push huh-1.0.4.gem"
 end
