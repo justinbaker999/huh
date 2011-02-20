@@ -72,6 +72,10 @@ class Test < Huh
     assert_nothing_raised do
       "I'm a good kid :)"
     end
+  end 
+
+ test "should fail!!!!" do
+    flunk
   end
  
   finish!
