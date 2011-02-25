@@ -83,12 +83,12 @@ class Huh
     assert a.send(operator, b) 
   end
 
-  def self.assert_send(a)
-    assert(a[0].send(a[1], *a[2..-1]))
+  def self.assert_send(send_array)
+    assert send_array[0].send(send_array[1], *send_array[2..-1])
   end
 
-  def self.assert_in_delta(e,a,d)
-    assert((e.to_f - a.to_f).abs <= d.to_f)
+  def self.assert_in_delta(expected, actual, delta)
+    assert (expected.to_f - actual.to_f).abs <= delta.to_f
   end
 
   def self.assert_nothing_thrown(&block)

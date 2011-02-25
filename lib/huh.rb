@@ -36,4 +36,4 @@ class Huh
   def self.assert_nothing_raised(&block); assert(begin; yield;true; rescue; false;end) end
   def self.finish!;puts "\n#{oz(@t)} tests, #{oz(@a)} assertions, #{oz(@f)} failures. #{(((oz(@t)-oz(@f)).to_f/@t.to_f)*100).to_i}% passing tests"; end # spit out info
 end
-
+ # i lied, 38 lines :)
