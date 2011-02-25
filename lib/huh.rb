@@ -3,16 +3,14 @@ class Huh
   class Failure < StandardError; end
   def self.test(name, &block)
     @t = oz(@t) + 1
-    begin
-      yield
-    rescue Failure => e
-      print "Testing #{name} [\033[1;49;31mFAILED\033[0m]\n"
-    else 
-      print "Testing #{name} [\033[1;49;32mPASSED\033[0m]\n"
-    end
+    print begin; yield; "Testing #{name} [\033[1;49;32mPASSED\033[0m]\n"; rescue Failure => e; "Testing #{name} [\033[1;49;31mFAILED\033[0m]\n" ;end
   end
+  def self.setup(&block); @setup = block; end
+  def self.teardown(&block); @teardown = block; end
   def self.assert(truth)
+    @setup.call if @setup
     !!truth ? (@a = oz(@a) + 1) : (@f = oz(@f) + 1; raise Failure)
+    @teardown if @teardown
   end
   def self.oz(v); v or 0; end
   def self.flunk; assert(false); end 
@@ -36,4 +34,3 @@ class Huh
   def self.assert_nothing_raised(&block); assert(begin; yield;true; rescue; false;end) end
   def self.finish!;puts "\n#{oz(@t)} tests, #{oz(@a)} assertions, #{oz(@f)} failures. #{(((oz(@t)-oz(@f)).to_f/@t.to_f)*100).to_i}% passing tests"; end # spit out info
 end
- # i lied, 38 lines :)

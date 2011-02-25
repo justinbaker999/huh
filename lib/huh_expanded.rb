@@ -1,6 +1,6 @@
 class Huh
 
-  VERSION = "1.0.5"
+  VERSION = "1.0.6"
 
   class Failure < StandardError; end
 
@@ -15,8 +15,18 @@ class Huh
     end
   end
 
+  def self.setup(&block)
+    @setup = block
+  end
+
+  def self.teardown(&block)
+    @teardown = block
+  end
+
   def self.assert(truth)
+    @setup.call if @setup
     !!truth ? (@assertions = oz(@assertions) + 1) : (@failures = oz(@failures) + 1; raise Failure)
+    @teardown.call if @teardown
   end
 
   def self.oz(value)
@@ -100,7 +110,7 @@ class Huh
   end
 
   def self.finish!
-    percentage = (((oz(@tests)-oz(@failures)).to_f/@tests.to_f)*100).to_i
+    percentage = ((( oz(@tests) - oz(@failures) ).to_f / @tests.to_f) * 100 ).to_i
     print "\n#{oz(@tests)} tests, #{oz(@assertions)} assertions, #{oz(@failures)} failures."
     print "#{percentage}% passing tests}\n"
   end
