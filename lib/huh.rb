@@ -1,5 +1,5 @@
 class Huh
-  V = "1.0.6"
+  V = "1.0.7"
   class Failure < StandardError; end
   def self.test(name, &block)
     @t = oz(@t) + 1

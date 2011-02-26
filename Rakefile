@@ -11,3 +11,7 @@ end
 task :clean do
   sh "rm huh-*.gem"
 end
+
+task :doc do
+  sh "rdoc lib/huh_expanded.rb"
+end
