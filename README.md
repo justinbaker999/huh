@@ -31,6 +31,14 @@ Usage
 
 Don't forget the finish!; it prints out number of tests, assertions, failures, as well as percentage of passing tests.
 
+Running tests from `irb` or `rails console`
+=============================================
+
+Just require huh, and call Huh#run with all test files as an argument.
+
+    require "huh"
+    Huh.run(Dir.glob("examples/*.rb"))
+
 Assertions
 ============
 
