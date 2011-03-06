@@ -223,5 +223,14 @@ class Huh
     print "#{percentage}% passing tests}\n"
   end
 
+  # use in irb/rails console to run tests
+  #
+  def self.run(files)
+    puts "\nrunning tests from #{t}\n"
+    files.each do |file|
+      require file 
+    end
+  end
+
 end
 
