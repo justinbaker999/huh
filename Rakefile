@@ -15,3 +15,7 @@ end
 task :doc do
   sh "rdoc lib/huh_expanded.rb"
 end
+
+task :test do
+  Huh.run Dir.glob("examples/*.rb")
+end  
