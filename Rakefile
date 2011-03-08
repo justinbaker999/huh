@@ -1,4 +1,5 @@
 require File.dirname(__FILE__) + "/lib/huh"
+require File.dirname(__FILE__) + "/lib/huh/task"
 
 task :default do
   sh "gem build huh.gemspec"
@@ -16,6 +17,4 @@ task :doc do
   sh "rdoc lib/huh_expanded.rb"
 end
 
-task :test do
-  Huh.run Dir.glob("examples/*.rb")
-end  
+Huh::Task.new(:test, Dir.glob("examples/*.rb"))  

@@ -1,5 +1,5 @@
 class Huh
-  V = "1.0.7" unless defined?(V)
+  V = "1.0.8" unless defined?(V)
   class Failure < StandardError; end
   def self.test(name, &block)
     @t = oz(@t) + 1
@@ -35,3 +35,4 @@ class Huh
   def self.finish!;puts "\n#{oz(@t)} tests, #{oz(@a)} assertions, #{oz(@f)} failures. #{(((oz(@t)-oz(@f)).to_f/@t.to_f)*100).to_i}% passing tests"; end
   def self.run(f);f.each{|t|puts "\nrunning tests from #{t}\n"; require t}; end
 end
+

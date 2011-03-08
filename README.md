@@ -13,7 +13,7 @@ or from source
     git clone git://github.com/justinbaker/huh.git
     cd huh
     rake
-    gem install huh-1.0.7.gem
+    gem install huh-1.0.8.gem
 
 Usage
 =========
