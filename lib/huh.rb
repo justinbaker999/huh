@@ -10,7 +10,7 @@ class Huh
   def self.assert(truth)
     @setup.call if @setup
     !!truth ? (@a = oz(@a) + 1) : (@f = oz(@f) + 1; raise Failure)
-    @teardown if @teardown
+    @teardown.call if @teardown
   end
   def self.oz(v); v or 0; end
   def self.flunk; assert(false); end 
