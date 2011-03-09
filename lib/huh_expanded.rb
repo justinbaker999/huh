@@ -20,7 +20,7 @@
 #
 class Huh
 
-  VERSION = "1.0.8" unless defined?(V) #:nodoc:
+  VERSION = "1.0.8" unless defined?(VERSION) #:nodoc:
 
   # The error thrown from a failing test
   #
