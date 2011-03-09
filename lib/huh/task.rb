@@ -7,6 +7,7 @@
 
 # This class creates a task in a Rakefile to run tests from rake
 #
+class Huh
   class Task
     def initialize(name = :test, files = [])
       task name do
