@@ -1,5 +1,6 @@
-Intro
-=========
+# HUH
+
+  (Don't use this. I don't maintain it.)
 
 A tiny(<40 lines) library for unit testing
 
