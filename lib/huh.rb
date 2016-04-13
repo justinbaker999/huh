@@ -35,4 +35,3 @@ class Huh
   def self.finish!;puts "\n#{oz(@t)} tests, #{oz(@a)} assertions, #{oz(@f)} failures. #{(((oz(@t)-oz(@f)).to_f/@t.to_f)*100).to_i}% passing tests"; end
   def self.run(f);f.each{|t|puts "\nrunning tests from #{t}\n"; require t}; end
 end
-
